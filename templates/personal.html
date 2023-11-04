@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block title %}Personal Area{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='personal.css') }}">
+{% endblock %}
+{% block body %}
+<nav>
+    <button class="button-inactive">
+        <p><a href="{{ url_for('home') }}">Homepage</a></p>
+    </button>
+    <button class="button-active">
+        <p>Personal Area</p>
+    </button>
+</nav>
+<content>
+    <div id="personal-album-container">
+        <header>
+            <h1>Album personali</h1>
+            <p>Visualizza e modifica i tuoi album personali</p>
+        </header>
+        <content>
+            {% for pack in packs %}
+            <div class="album-view">
+                <p class="album-view-title">{{ pack.album_title }}</p>
+                <form action="/personal-area/view-album" method="GET">
+                    <button type="submit" name="album_id" value="{{ pack.album_id }}" id="album-view-button">
+                        {% if pack.album_cover_filename %}
+                        <img src="{{ url_for('static', filename=pack.album_cover_filename) }}">
+                        {% else %}
+                        Clicca qui per esplorare l'album e aggiungervi foto
+                        {% endif %}
+                    </button>
+                </form>
+                <footer>
+                    <div class="album-view-author">                        
+                        <p><img src="{{ url_for('static', filename='icon-user.png') }}">{{ pack.album_author }}</p>
+                    </div>
+                    <div class="album-view-downloads">                        
+                        <p><img src="{{ url_for('static', filename='icon-download.png') }}">{{ pack.album_tot_downloads }}</p>
+                    </div>
+                </footer>
+            </div>
+            {% endfor %}
+        </content>
+    </div>
+    <div id="personal-album-divider"></div>
+    <div id="personal-album-creator">
+        <header>
+            <h1>Crea un nuovo album</h1>
+            <div>
+                <form action="/personal-area" method="POST" id="create-new-album">
+                    <p>Titolo</p>
+                    <input type="text" name="title" required>
+                    <br>
+                    <input type="submit" value="Crea">
+                </form>
+            </div>
+        </header>
+    
+        <content>
+            {% for message in get_flashed_messages(category_filter=["error"]) %}
+                <div class="flash-error">
+                    <p class="flash-message">{{ message }}</p>
+                </div>        
+            {% endfor %}
+            {% for message in get_flashed_messages(category_filter=["success"]) %}
+                <div class="flash-success">
+                    <p class="flash-message">{{ message }}</p>
+                </div>        
+            {% endfor %}
+        </content>
+    </div>
+</content>
+
+{% endblock %}

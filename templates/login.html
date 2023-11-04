@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='login.css') }}">
+{% endblock %}
+{% block body %}
+<content>    
+    <section id="account-section">
+        <div id="account-section-top">
+            <p>Picturist</p>
+            
+        </div>        
+        {% for message in get_flashed_messages(category_filter=["error"]) %}
+            <div id="account-section-mid-error">
+                <p class="flash-message">{{ message }}</p>
+            </div>        
+        {% endfor %}
+        {% for message in get_flashed_messages(category_filter=["success"]) %}
+            <div id="account-section-mid-success">
+                <p class="flash-message">{{ message }}</p>
+            </div>        
+        {% endfor %}
+        <div>
+            <form action="/login" method="POST" id="account-section-bottom">
+                <h1>Accedi</h1>
+                <p>Email</p>
+                <input type="email" name="email" required>
+                <p>Password</p>
+                <input type="password" name="password" required>
+                <br>
+                <input type="submit" value="Accedi">
+                <br>
+                <p>Procedi senza account <a href="{{ url_for('home')}}">qui</a></p>
+                <p>Non possiedi un account? <a href="{{ url_for('register') }}">Registrati</a></p>
+            </form>
+        </div>
+    </section>
+</content>
+{% endblock %}

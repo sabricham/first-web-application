@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Personal Area{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='personal-add-photo.css') }}">
+{% endblock %}
+{% block body %}
+<nav>
+    <button class="button-inactive">
+        <p><a href="{{ url_for('home') }}">Homepage</a></p>
+    </button>
+    <button class="button-active">
+        <p>Personal Area</p>
+    </button>
+</nav>
+<content>
+    <div id="personal-photo-adder">
+        <header>
+            <h1>{{ album.title }}</h1>
+            <p>Aggiungi una nuova foto all'album</p>            
+            {% for message in get_flashed_messages(category_filter=["error"]) %}
+                <div class="flash-error">
+                    <p class="flash-message">{{ message }}</p>
+                </div>                        
+            {% endfor %}
+            {% for message in get_flashed_messages(category_filter=["success"]) %}
+                <div class="flash-success">
+                    <p class="flash-message">{{ message }}</p>
+                </div>      
+            {% endfor %}
+            <form action="{{ url_for('personal_view_album') }}" method="GET">
+                <button type="submit" name="album_id" value="{{ album.id }}" class="previous-page"><img src="{{ url_for('static', filename='icon-previous.png') }}"></button>
+            </form>
+        </header>
+        <content>
+            <form action="/personal-area/view-album/add-photo" method="POST" id="add-new-photo" enctype="multipart/form-data">
+                <p>Titolo</p>
+                <input type="text" name="title" required>
+                <p>Descrizione</p>
+                <textarea name="description" id="description" required></textarea>
+                <p>Data dello scatto</p>
+                <input type="date" name="date" required>
+                <p>Luogo dello scatto</p>
+                <input type="text" name="position" required>
+                <p>Rendi nascosta al pubblico</p>
+                <input type="checkbox" name="private">
+                <p>File immagine (solamente .jpg in rapporto 1:1)</p>
+                <input type="file" name="image" accept=".jpg" required>
+                <br>
+                <button type="submit" name="album_id" value="{{ album.id }}">Aggiungi</button>
+            </form>
+        </content>        
+    </div>
+</content>
+
+{% endblock %}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Picturist - {% block title %}{% endblock %}</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='base.css') }}">
+        <script defer src="{{ url_for('static', filename='app.js') }}"></script>
+        {% block head %}{% endblock %}
+    </head>
+    <body>
+        <header class="base-header">
+            <p>
+                Picturist
+            </p>
+            {% if not current_user.is_authenticated %}
+            <section id="login-register-accesspoint">                
+                <a href="{{ url_for('register') }}">Registrati</a>
+                <p>&nbsp o &nbsp</p>
+                <a href="{{ url_for('login') }}">Accedi</a>
+            </section>
+            {% else %}
+            <section id="account-loggedin-infos">
+                <div>
+                    <h1>{{current_user.name}}&nbsp{{current_user.surname}}</h1>
+                    <a href="/logout">Esci</a>
+                </div>                
+            </section>
+            {% endif %}
+        </header>     
+        {% block body %}{% endblock %}
+        <footer class="base-footer">
+
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Register{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='register.css') }}">
+{% endblock %}
+{% block body %}
+<content>
+    <section id="account-section">
+        <div id="account-section-top">
+            <p>Picturist</p>
+        </div> 
+        {% for message in get_flashed_messages(category_filter=["error"]) %}
+            <div class="flash-error">
+                <p class="flash-message">
+                    {{ message }}
+                </p>
+            </div>        
+        {% endfor %}
+        {% for message in get_flashed_messages(category_filter=["success"]) %}
+            <div class="flash-success">
+                <p class="flash-message">
+                    {{ message }}
+                </p>
+            </div>        
+        {% endfor %}
+        <div>
+            <form action="/register" method="POST" id="account-section-bottom">
+                <h1>Registrati</h1>
+                <p>Nome</p>
+                <input type="text" name="name" required>
+                <p>Cognome</p>
+                <input type="text" name="surname" required>
+                <p>Email</p>
+                <input type="email" name="email" required>
+                <p>Password</p>
+                <input type="password" name="password" required>
+                <br>
+                <input type="submit" value="Registrati">
+                <br>
+                <p>Procedi senza account <a href="{{ url_for('home')}}">qui</a></p>
+                <p>Possiedi gia' un account? <a href="{{ url_for('login') }}">Accedi</a></p>
+            </form>
+        </div>
+    </section>
+</content>
+{% endblock %}

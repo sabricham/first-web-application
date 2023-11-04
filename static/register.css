@@ -1,0 +1,118 @@
+content{
+    width: 100%;
+    height: 700px;
+
+    display: flex;    
+    justify-content: center;
+}
+
+#account-section{
+    position: relative;
+    top: 75px;
+
+    border-radius: 20px;
+    border-width: 5px;
+    border: solid;
+    border-color: rgb(193, 193, 193);
+    background-color: rgb(209, 233, 244);
+    height: 570px;
+    width: 350px;
+}
+
+#account-section-top{
+    position: relative;
+    top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+
+    height: 100px;
+    width: 250px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: center;
+}
+
+#account-section-top p{
+    margin: auto;
+
+    color: #3e3e3e;
+    font-size: 55px;
+    text-align: center;
+}
+
+.flash-success{
+    position: relative;
+    top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+
+    height: 50px;
+    width: 250px;
+
+    background-color: #d4edda;
+    
+    border-radius: 10px;
+    border-width: 5px;
+    border: solid;
+    border-color: #c3e6cb;
+}
+
+.flash-error{
+    position: relative;
+    top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+
+    height: 50px;
+    width: 250px;
+
+    background-color: #f8d7da;
+    
+    border-radius: 10px;
+    border-width: 5px;
+    border: solid;
+    border-color: #f5c6cb;
+}
+
+.flash-message{
+    border: 0;
+    padding: 0;
+    font-size: 17px;
+    text-align: center;
+}
+
+#account-section-bottom{
+    position: relative;
+    top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+
+    height: 200px;
+    width: 250px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#account-section-bottom p{
+    padding: 0px;
+    margin: 5px;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+input:invalid {
+    border: 1px dashed rgb(255, 84, 84);
+}
+
+input:valid{
+    border: 1px solid black;
+}

@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}Personal Area{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='personal-view-photo.css') }}">
+{% endblock %}
+{% block body %}
+<nav>
+    <button class="button-inactive">
+        <p><a href="{{ url_for('home') }}">Homepage</a></p>
+    </button>
+    <button class="button-active">
+        <p>Personal Area</p>
+    </button>
+</nav>
+<content>
+    <div id="personal-photo-container">
+        <form action="{{ url_for('personal_view_album') }}" method="GET">
+            <button type="submit" name="album_id" value="{{ album.id }}" class="previous-page"><img src="{{ url_for('static', filename='icon-previous.png') }}"></button>
+        </form>
+        {% if not photo.private %}
+        <a href="{{ url_for('download_photo', filename=photo.filename, id=photo.id) }}" id="personal-photo-download">
+            <p>Scarica foto</p>
+            <img src="{{ url_for('static', filename='icon-download.png') }}">
+        </a>
+        {% endif %}
+        <content id="photo-view">
+            <div id="photo-image-view">
+                <img src="{{ url_for('static', filename=photo.filename) }}">
+            </div>
+            <div id="photo-content-view">
+                <p class="photo-view-title">{{ photo.title }}</p>
+                <aside>
+                    <div class="photo-view-author">                        
+                        <p><img src="{{ url_for('static', filename='icon-user.png') }}">{{ photo.author }}</p>
+                    </div>
+                    <div class="photo-view-position">                        
+                        <p><img src="{{ url_for('static', filename='icon-position.png') }}">{{ photo.position }}</p>
+                    </div>
+                    <div class="photo-view-description">                        
+                        <p><img src="{{ url_for('static', filename='icon-description.png') }}">{{ photo.description }}</p>
+                    </div>
+                    <div class="photo-view-date">                        
+                        <p><img src="{{ url_for('static', filename='icon-date.png') }}">{{ photo.date }}</p>
+                    </div>
+                    {% if not photo.private %}
+                    <div class="photo-view-downloads">                        
+                        <p><img src="{{ url_for('static', filename='icon-download.png') }}">{{ photo.downloads }}</p>
+                    </div>                    
+                    {% endif %}
+                </aside>
+            </div>
+        </content>
+    </div>
+</content>
+
+{% endblock %}

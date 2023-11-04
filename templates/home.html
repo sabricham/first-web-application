@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}Homepage{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='home.css') }}">
+{% endblock %}
+{% block body %}
+<nav>
+    <button class="button-active">
+        <p>Homepage</p>
+    </button>
+    {% if current_user.is_authenticated %}
+    <button class="button-inactive">
+        <p><a href="{{ url_for('personal') }}" class="account-related-items">Personal Area</a></p>
+    </button>
+    {% endif %}
+</nav>
+<content>
+    <div id="home-album-container">
+        <header>
+            <h1>Esplora il mondo, scatta e condividi!</h1>
+            <p>Visualizza gli album creati dagli utenti della community</p>
+        </header>
+        <content>
+            {% for pack in packs %}
+            <div class="album-view">
+                <p class="album-view-title">{{ pack.album_title }}</p>
+                <form action="/home/view-album" method="GET">
+                    <button type="submit" name="album_id" value="{{ pack.album_id }}">
+                        {% if pack.album_cover_filename %}
+                        <img src="{{ url_for('static', filename=pack.album_cover_filename) }}">
+                        {% else %}
+                        Clicca qui per esplorare l'album e aggiungervi foto
+                        {% endif %}
+                    </button>
+                </form>
+                <footer>
+                    <div class="album-view-author">                        
+                        <p><img src="{{ url_for('static', filename='icon-user.png') }}">{{ pack.album_author }}</p>
+                    </div>
+                    <div class="album-view-downloads">                        
+                        <p><img src="{{ url_for('static', filename='icon-download.png') }}">{{ pack.album_tot_downloads }}</p>
+                    </div>
+                </footer>
+            </div>
+            {% endfor %}
+        </content>
+    </div>
+</content>
+
+{% endblock %}

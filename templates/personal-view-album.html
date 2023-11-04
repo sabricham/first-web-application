@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}Personal Area{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='personal-view-album.css') }}">
+{% endblock %}
+{% block body %}
+<nav>
+    <button class="button-inactive">
+        <p><a href="{{ url_for('home') }}">Homepage</a></p>
+    </button>
+    <button class="button-active">
+        <p>Personal Area</p>
+    </button>
+</nav>
+<content>
+    <a href="{{ url_for('personal') }}" class="previous-page"><img src="{{ url_for('static', filename='icon-previous.png') }}"></a>
+    <div id="personal-photo-container">
+        <header>
+            <h1>{{ album.title }}</h1>
+            {% if photos|length %}
+            <p>Esplora le foto contenute nell'album</p>
+            {% else %}
+            <p>Nell'album non è ancora presente alcuna foto</p>
+            {% endif %}
+        </header>
+        <div id="personal-search-photo">
+            <input type="text" placeholder="Cerca foto"><img src="{{ url_for('static', filename='icon-search.png') }}"></input>
+        </div> 
+        <form action="/personal-area/view-album/add-photo" method="GET">
+            <button id="personal-photo-add" type="submit" name="album_id" value="{{ album.id }}">
+                <p>Aggiungi foto</p>
+                <img src="{{ url_for('static', filename='icon-add.png') }}">
+            </button> 
+        </form>    
+        {% if photos|length %}
+        <content id="personal-album-search-photo">
+            {% for photo in photos %}
+            <div class="personal-photo-view">
+                <p class="photo-view-title">{{ photo.title }}</p>
+                <form action="{{ url_for('personal_view_photo') }}" method="GET">
+                    <input type="hidden" name="photo_id" value="{{ photo.id }}">
+                    <button type="submit" name="album_id" value="{{ album.id }}"><img src="{{ url_for('static', filename=photo.filename) }}"></button>
+                </form>
+                <footer>
+                    <div class="photo-view-author">                        
+                        <p><img src="{{ url_for('static', filename='icon-user.png') }}">{{ photo.author }}</p>
+                    </div>
+                    <div class="photo-view-position">                        
+                        <p><img src="{{ url_for('static', filename='icon-position.png') }}">{{ photo.position }}</p>
+                    </div>
+                    <div class="photo-view-date">                        
+                        <p><img src="{{ url_for('static', filename='icon-date.png') }}">{{ photo.date }}</p>
+                    </div>
+                    <div class="photo-view-private">                   
+                    {% if photo.private == 1%}
+                        <p><img src="{{ url_for('static', filename='icon-private.png') }}">Privata</p>
+                    {% else %}                             
+                        <p><img src="{{ url_for('static', filename='icon-public.png') }}">Pubblica</p>
+                    </div>
+                    <div class="photo-view-downloads">                        
+                        <p><img src="{{ url_for('static', filename='icon-download.png') }}">{{ photo.downloads }}</p>
+                    {% endif %}                        
+                    </div>
+                </footer>
+            </div>
+            {% endfor %}
+        </content>
+        {% endif %}
+    </div>
+</content>
+
+{% endblock %}

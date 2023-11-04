@@ -1,0 +1,176 @@
+nav{
+    margin: 0px;
+    padding: 0px;
+    height: 45px;
+    width: 100%;
+    
+    background-color: #e7e7e7;
+}
+
+.button-inactive{
+    margin: 0px;
+    padding: 0px;
+    height: 45px;
+    width: 120px;   
+    
+    float: left;
+
+    border: none;
+    color: #555555;
+    background-color: #e7e7e7;
+}
+
+.button-inactive p{
+    text-align: center;
+    font-size: 15px;
+    text-decoration: none !important;
+}
+
+.button-inactive a{
+    text-decoration: none !important; 
+}
+
+.button-active{
+    margin: 0px;
+    padding: 0px;
+    height: 45px;
+    width: 120px;
+    
+    float: left;
+
+    border: none;
+    color: #e7e7e7;
+    background-color: #555555;
+}
+
+.button-active p{   
+    text-align: center;
+    font-size: 15px;   
+    text-decoration: none !important; 
+}
+
+content{    
+    width: 100%;
+
+    padding: 0;
+    margin: 0;
+
+    display: flex;    
+    justify-content: center;
+}
+
+.previous-page{
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
+
+    position: absolute;
+    top: 160px;
+    left: 50px
+}
+
+.previous-page img{
+    width: 50px;
+    height: 50px;
+}
+
+.flash-success{
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    margin-bottom: 20px;
+
+    height: 50px;
+    width: 320px;
+
+    background-color: #d4edda;
+    
+    border-radius: 10px;
+    border-width: 5px;
+    border: solid;
+    border-color: #c3e6cb;
+}
+
+.flash-error{
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    margin-bottom: 20px;
+
+    height: 50px;
+    width: 250px;
+
+    background-color: #f8d7da;
+    
+    border-radius: 10px;
+    border-width: 5px;
+    border: solid;
+    border-color: #f5c6cb;
+}
+
+.flash-message{
+    border: 0;
+    padding: 0;
+    font-size: 17px;
+    text-align: center;
+}
+
+#personal-photo-adder header{
+    height: fit-content;
+    width: 400px;
+}
+
+#personal-photo-adder header p{
+    text-align: center;
+    font-size: 18px;
+    color: #3e3e3e;
+}
+
+#personal-photo-adder header h1{
+    text-align: center;
+    font-size: 30px;    
+    color: #3e3e3e;
+}
+
+#add-new-photo{
+    height: 500px;
+    width: 400px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    border-radius: 20px;
+    border-width: 5px;
+    border: solid;
+    border-color: rgb(193, 193, 193);
+}
+
+#add-new-photo p{
+    padding: 0px;
+    margin: 5px;
+    text-align: center;
+}
+
+#add-new-photo input{
+    width: 70%;
+}
+
+#add-new-photo textarea{
+    width: 70%;
+    height: 150px;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+input:invalid, textarea:invalid{
+    border: 1px dashed rgb(255, 84, 84);
+}
+
+input:valid, textarea:valid{
+    border: 1px solid black;
+}

@@ -1,0 +1,95 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.base-header{
+    margin: 0px;
+    padding: 0px;
+    height: 90px;
+    width: 100%;
+    
+    background-color: rgb(177, 222, 245);
+}
+
+.base-header p{    
+    font-size: 50px;
+    color: #3e3e3e;
+
+    margin: 0px;
+    padding-bottom: 0px;
+    padding-top: 20px;
+    padding-left: 30px;
+
+    float: left;
+}
+
+.base-header section{
+    width: 300px;
+    height: 60px;
+
+    padding-right: 30px;
+    padding-top: 15px;  
+    padding-bottom: 15px;
+
+    float: right;
+}
+
+.base-header #login-register-accesspoint p{  
+    font-size: 17px;
+    text-align: end;
+
+    color: #3e3e3e;
+
+    float: right;
+
+    padding: 0px;
+    padding-top: 30px;
+}
+
+.base-header #login-register-accesspoint a{ 
+    font-size: 18px;
+    text-align: end;
+
+    color: #3e3e3e;
+
+    float: right;
+
+    padding: 0px;
+    padding-top: 30px;
+}
+
+.base-header #account-loggedin-infos div{
+    border: 0px;
+    padding: 0px;
+    
+    display: flex;
+    flex-flow: column;
+}
+
+.base-header #account-loggedin-infos div h1{    
+    font-size: 22px;
+    text-align: end;
+
+    color: #3e3e3e;
+
+    padding: 0px;
+    margin-top: 15px;
+    margin-bottom: 0px;    
+}
+
+.base-header #account-loggedin-infos div a{    
+    font-size: 17px;
+    text-align: end;
+    text-decoration: none !important;
+
+    color: #3e3e3e;
+
+    padding: 0px;
+    margin-top: 0px;
+}
+
+.base-footer{
+    margin: 0px;
+    padding: 0px;
+}

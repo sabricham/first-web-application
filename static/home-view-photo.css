@@ -1,0 +1,194 @@
+nav{
+    margin: 0px;
+    padding: 0px;
+    height: 45px;
+    width: 100%;
+    
+    background-color: #e7e7e7;
+}
+
+.button-inactive{
+    margin: 0px;
+    padding: 0px;
+    height: 45px;
+    width: 120px;   
+    
+    float: left;
+
+    border: none;
+    color: #555555;
+    background-color: #e7e7e7;
+}
+
+.button-inactive p{
+    text-align: center;
+    font-size: 15px;
+    text-decoration: none !important;
+}
+
+.button-inactive a{
+    text-decoration: none !important; 
+}
+
+.button-active{
+    margin: 0px;
+    padding: 0px;
+    height: 45px;
+    width: 120px;
+    
+    float: left;
+
+    border: none;
+    color: #e7e7e7;
+    background-color: #555555;
+}
+
+.button-active p{   
+    text-align: center;
+    font-size: 15px;   
+    text-decoration: none !important; 
+}
+
+content{    
+    width: 100%;
+
+    padding: 0;
+    margin-top: 10px;
+
+    display: flex;    
+    justify-content: center;
+}
+
+#personal-photo-download{
+    position: absolute;
+    top: 160px;
+    right: 20px;
+
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+
+    float: right;
+
+    height: 50px;
+    width: 150px;
+
+    background-color: #d4edda;
+    
+    border-radius: 10px;
+    border-width: 5px;
+    border: solid;
+    border-color: #c3e6cb;
+}
+
+#personal-photo-download img{
+    width: 20px;
+    height: 20px;
+
+    margin: 10px;
+    margin-right: 20px;
+
+    float: right;
+}
+#personal-photo-download p{
+    width: 90px;
+    text-align: right;
+
+    float: left;
+}
+
+.previous-page{
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
+
+    position: absolute;
+    top: 160px;
+    left: 50px
+}
+
+.previous-page img{
+    width: 50px;
+    height: 50px;
+}
+
+#home-photo-container content{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+
+    padding: 0;
+    margin: 0;
+}
+
+#photo-view{
+    width: 1000px;
+    height: 620px;
+    
+    padding: 0;
+    margin: 0;
+    margin-top: 20px;
+}
+
+#photo-image-view{
+    width: 630px;
+    height: 630px;
+    float: left;
+
+    padding: 0;
+    margin: 10px;
+}
+
+#photo-image-view img{
+    width: 100%;
+    height: 100%;
+}
+
+#photo-content-view{
+    width: 300px;
+    height: 600px;
+    float: right;
+    
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    background-color: white;
+
+    padding: 0;
+    margin: 0;
+}
+
+.photo-view-title{
+    width: 250px;
+    
+    color: #3e3e3e;
+
+    font-size: 25px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.photo-view-author p, .photo-view-position p, .photo-view-date p, .photo-view-downloads p{
+    width: 100%;
+    height: 20px;
+    margin: 10px;
+    padding: 0;
+}
+
+.photo-view-description p{
+    width: 100%;
+    height: 300px;
+    margin: 10px;
+    padding: 0;
+}
+
+.photo-view-author img, .photo-view-position img, .photo-view-description img, .photo-view-date img, .photo-view-downloads img{
+    width: 20px;
+    height: 20px;
+
+    float: left;
+    margin-right: 20px;
+}
