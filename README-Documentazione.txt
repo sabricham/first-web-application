@@ -1,6 +1,15 @@
 PICTURIST - Applicazione web e server per l'esame 'Fotografie' del 12/06/2023
 
 Introduzione:
+L'esame è stato svolto in modo individuale, le specifiche nel dettaglio sono presenti all'interno del file pdf.
+"L'applicazione è un sito web e server per gestire fotografie di utenti registrati e utenti guests, qualunque tipo
+di utente può visualizzare le fotografie e le proprietà di ogni fotografia (titolo, autore, data etc), gli album 
+e le proprietà di ogni album nonchè le relative fotografie appartenenti.
+Gli utenti registrati potranno, in una sezione apposita del sito, anche pubblicare le fotografie da loro scattate 
+all'interno di album creati da loro, nel dettaglio: prima viene creato l'album vuoto e poi gli vengono aggiunte le fotografie
+Inoltre utenti registrati e non potranno visualizzare alcune statistiche riguardo foto e album come le visualizzazioni e 
+il numero di download, oltre che appunto scaricare le foto."
+
 Il sito web è costituito da questi componenti:
 
 login.html: per il login e avvio della sessione
